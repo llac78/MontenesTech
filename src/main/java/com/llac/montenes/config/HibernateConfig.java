@@ -46,7 +46,7 @@ public class HibernateConfig {
         return adapter;
     }
 	
-	@Bean
+	@Bean(name="transactionManager")
 	public PlatformTransactionManager txManager() {
 		JpaTransactionManager tx = new JpaTransactionManager(getEntityManagerFactoryBean().getObject());
 		return tx;
@@ -63,7 +63,6 @@ public class HibernateConfig {
 		return dataSource;
 	}
 	
-	
 	private Properties hibernateProperties(){
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
@@ -73,6 +72,4 @@ public class HibernateConfig {
 		
 		return properties;
 	}
-	
-	
 }

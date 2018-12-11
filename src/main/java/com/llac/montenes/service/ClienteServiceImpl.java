@@ -29,10 +29,13 @@ public class ClienteServiceImpl implements ClienteService {
 	public List<Cliente> listarClientes() {
 
 		List<Cliente> lista = new ArrayList<Cliente>();
-		
 		clienteRepository.findAll().forEach(e -> lista.add(e));
 		
 		return lista;
 	}
-
+	
+	@Override
+	public Cliente salvar(Cliente cliente) {
+		return clienteRepository.save(cliente);
+	}
 }

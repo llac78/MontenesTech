@@ -8,4 +8,7 @@ public interface ClienteService {
 
 	public List<Cliente> listarClientes();
 	
+	public Cliente salvar(Cliente cliente);
+	
+	
 }

@@ -10,5 +10,4 @@ public interface ClienteService {
 	
 	public Cliente salvar(Cliente cliente);
 	
-	
 }

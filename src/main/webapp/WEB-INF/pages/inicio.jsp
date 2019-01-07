@@ -7,29 +7,38 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Montenes Tech</title>
+
+	<style>
+	.error {
+		color: red;
+		font-weight: bold;
+	}
+	</style>
+
 </head>
 <body>
-	<h1>Página inicial do sistema! </h1>
-	
-	<s:form action="${pageContext.request.contextPath }/salvar" method="post" modelAttribute="cliente_form">
+	<h1>Página inicial do sistema</h1>
+
+	<s:form action="${pageContext.request.contextPath }/salvar"
+		method="post" modelAttribute="cliente_form">
 		<table>
 			<tr>
+				<td><label id="cliente_nome" for="nome">Nome</label></td>
+
 				<td>
-					<label id="cliente_nome" for="nome">Nome</label>
+					<s:input path="nome" /> 
 				</td>
 				<td>
-					<s:input path="nome"  />
-				</td>
-				<td>
-					<input type="submit" value="Salvar" /> 
-				</td>
-			</tr>		
-	
+					<s:errors path="nome" cssClass="error" />
+				</td>	
+			</tr>
+			<tr>
+				<td></td>
+				<td align="right"><input type="submit" value="Salvar" /></td>
+			</tr>
+
 		</table>
 	</s:form>
-	
-	
-	
 
 	<c:choose>
 		<c:when test="${not empty listaClientes}">

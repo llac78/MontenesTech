@@ -1,5 +1,6 @@
 package com.llac.montenes.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -51,34 +52,37 @@ public class ClienteController {
 		return mv;
 	}
 
-	@PostMapping
-	public ModelAndView salvar(@Valid @ModelAttribute("cliente_form") Cliente cliente, BindingResult result) {
-
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("inicio");
-
-		List<Cliente> clientes = this.listarClientes();
-
-		if (result.hasErrors()) {
-
-			if (!clientes.isEmpty() || !(clientes == null)) {
-				mv.addObject("listaClientes", clientes);
-			}
-
-			return mv;
-		}
-
-		clienteService.salvar(cliente);
-		clientes.add(cliente);
-		mv.addObject("listaClientes", clientes);
-
-		return mv;
-	}
+	 @PostMapping()
+	 public ModelAndView salvar(@Valid @ModelAttribute("cliente_form") Cliente
+	 cliente, BindingResult result) {
+	
+		 ModelAndView mv = new ModelAndView();
+		 mv.setViewName("inicio");
+		 
+		 if (result.hasErrors()) {
+			 List<Cliente> clientes = this.listarClientes();
+			 if (!clientes.isEmpty() || !(clientes == null)) {
+				 mv.addObject("listaClientes", clientes);
+			 }
+		
+			 return mv;
+		
+		 } else {
+			 clienteService.salvar(cliente);
+			 List<Cliente> clientes = this.listarClientes();
+			 mv.addObject("listaClientes", clientes);
+			 
+			 return mv;
+		 }
+	
+	 }
 
 	public List<Cliente> listarClientes() {
 
 		List<Cliente> clientes = clienteService.listarClientes();
-
+		
+		Collections.reverse(clientes);
+		
 		return clientes;
 	}
 

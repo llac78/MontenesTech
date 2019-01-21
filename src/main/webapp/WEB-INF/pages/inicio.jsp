@@ -7,18 +7,18 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Montenes Tech</title>
-
+	
 	<style>
-	.error {
-		color: red;
-		font-weight: bold;
-	}
+		.error {
+			color: red;
+			font-weight: bold;
+		}
 	</style>
 
 </head>
 <body>
 	<h1>Página inicial do sistema</h1>
-
+	
 	<s:form action="${pageContext.request.contextPath }/salvar"
 		method="post" modelAttribute="cliente_form">
 		<table>
@@ -26,7 +26,7 @@
 				<td><label id="cliente_nome" for="nome">Nome</label></td>
 
 				<td>
-					<s:input path="nome" /> 
+					<s:input path="nome" id="cliente_nome" itemLabel="nome" /> 
 				</td>
 				<td>
 					<s:errors path="nome" cssClass="error" />

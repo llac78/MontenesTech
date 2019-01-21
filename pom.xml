@@ -20,7 +20,7 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
+		
 		<!-- Servlet - taglibs -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -90,6 +90,7 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.6.4</version>
 		</dependency>
+		
 	</dependencies>
 
 	<build>

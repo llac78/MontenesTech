@@ -17,7 +17,7 @@
 
 </head>
 <body>
-	<h1>Página inicial do sistema</h1>
+	<h1>Cadastro de Clientes</h1>
 	
 	<s:form action="${pageContext.request.contextPath }/salvar"
 		method="post" modelAttribute="cliente_form">
@@ -26,11 +26,21 @@
 				<td><label id="cliente_nome" for="nome">Nome</label></td>
 
 				<td>
-					<s:input path="nome" id="cliente_nome" itemLabel="nome" /> 
+					<s:input path="nome" id="nome" itemLabel="nome" /> 
 				</td>
 				<td>
 					<s:errors path="nome" cssClass="error" />
 				</td>	
+			</tr>
+			<tr>
+				<td><label id="cliente_valor" for="valor">Valor</label></td>
+
+				<td>
+					<s:input path="valor" id="valor" itemLabel="valor" /> 
+				</td>
+				<td>
+					<s:errors path="valor" cssClass="error" />
+				</td>
 			</tr>
 			<tr>
 				<td></td>
@@ -45,11 +55,13 @@
 			<table>
 				<tr>
 					<td><h3>Nome</h3></td>
+					<td><h3>Valor</h3></td>
 				</tr>
 
 				<c:forEach var="cliente" items="${listaClientes}">
 					<tr>
 						<td>${cliente.nome}</td>
+						<td>${cliente.valor}</td>
 					</tr>
 				</c:forEach>
 			</table>

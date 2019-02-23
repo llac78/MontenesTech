@@ -2,6 +2,7 @@ package com.llac.montenes.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,8 +28,12 @@ public class Cliente implements Serializable {
 	private Long id;
 
 	@NotNull(message = "Este campo é obrigatório")
-	@Size(min = 4, max = 8, message = "Este campo deve possuir de 4 a 8 caracteres.")
+	@Size(min = 3, message = "Este campo deve possuir no mínimo 3 caracteres.")
 	private String nome;
+	
+	@NotNull(message = "Este campo é obrigatório")
+	@Column(name = "valor")
+	private Double valor;
 
 	public Long getId() {
 		return id;
@@ -44,6 +49,14 @@ public class Cliente implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
 	}
 
 	@Override

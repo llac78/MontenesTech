@@ -26,7 +26,7 @@
 				<td><label id="cliente_nome" for="nome">Nome</label></td>
 
 				<td>
-					<s:input path="nome" id="nome" itemLabel="nome" /> 
+					<s:input path="nome" id="nome" itemLabel="nome" pattern="[A-Za-z\s]+" /> 
 				</td>
 				<td>
 					<s:errors path="nome" cssClass="error" />
@@ -36,7 +36,7 @@
 				<td><label id="cliente_valor" for="valor">Valor</label></td>
 
 				<td>
-					<s:input path="valor" id="valor" itemLabel="valor" /> 
+					<s:input path="valor" id="valor" itemLabel="valor" pattern= "^\d*(\.\d{0,2})?$" /> 
 				</td>
 				<td>
 					<s:errors path="valor" cssClass="error" />

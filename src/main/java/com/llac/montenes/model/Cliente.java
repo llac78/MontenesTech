@@ -1,8 +1,8 @@
 package com.llac.montenes.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,8 +32,7 @@ public class Cliente implements Serializable {
 	private String nome;
 	
 	@NotNull(message = "Este campo é obrigatório")
-	@Column(name = "valor")
-	private Double valor;
+	private BigDecimal valor;
 
 	public Long getId() {
 		return id;
@@ -51,11 +50,11 @@ public class Cliente implements Serializable {
 		this.nome = nome;
 	}
 	
-	public Double getValor() {
+	public BigDecimal getValor() {
 		return valor;
 	}
 
-	public void setValor(Double valor) {
+	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
 
